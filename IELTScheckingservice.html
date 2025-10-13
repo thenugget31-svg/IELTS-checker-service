@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IELTS Checker Service</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6f0ff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 30px auto;
+      background-color: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: darkred;
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    p.intro {
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      color: #003366;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 12px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+      width: 100%;
+    }
+
+    textarea {
+      min-height: 130px;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 18px;
+    }
+
+    .pay-button {
+      flex: 1;
+      margin: 5px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 0;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+      transition: 0.2s;
+    }
+
+    .pay-button:hover {
+      background-color: #0056b3;
+      box-shadow: 0 6px 8px rgba(0,0,0,0.2);
+    }
+
+    .note {
+      color: #003366;
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .disclaimer {
+      font-size: 15px;
+      color: #222;
+      text-align: center;
+      margin-top: 25px;
+      line-height: 1.6;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>IELTS Checker Service</h1>
+    <p class="intro">
+      We provide IELTS part 2 writing and part 2 speaking feedback and the charge is $3.99 for each submission. For both writing and speaking feedback at the same time, the charge is $6.50. All submissions are A.I assisted but also reviewed by an IELTS expert with 20 years teaching experience.
+    </p>
+
+    <form action="https://formspree.io/f/xjkaajyr" method="POST">
+      <label for="email">Enter your email:</label>
+      <input type="email" id="email" name="email" required placeholder="Enter your email" />
+
+      <label for="confirm_email">Confirm your email:</label>
+      <input type="email" id="confirm_email" name="confirm_email" required placeholder="Confirm your email" />
+
+      <label for="question">Enter your IELTS question here:</label>
+      <textarea id="question" name="question" placeholder="Write the IELTS question you are answering..."></textarea>
+
+      <label for="essay">Enter your essay writing text here and remember to separate the paragraphs with spaces:</label>
+      <textarea id="essay" name="essay" placeholder="Type or paste your essay here..."></textarea>
+
+      <label for="audio">Paste your audio file link here: https://www.dropbox.com/s/xxxxxxxxxxxxxxxxxx</label>
+      <input type="text" id="audio" name="audio" placeholder="(OneDrive, Dropbox, Google Drive, YouTube, or similar):" />
+
+      <p class="note">
+        After adding your writing and/or speaking link – please select your chosen service.
+      </p>
+
+      <div class="button-group">
+        <button type="submit" class="pay-button" formaction="https://buy.stripe.com/test_00wdR90VXdm72h5fExg7e00">Submit Part 2 Essay ($3.99)</button>
+        <button type="submit" class="pay-button" formaction="https://buy.stripe.com/test_00wdR90VXdm72h5fExg7e00">Submit Speaking Part 2 ($3.99)</button>
+        <button type="submit" class="pay-button" formaction="https://buy.stripe.com/test_00wdR90VXdm72h5fExg7e00">Submit Both ($6.50)</button>
+      </div>
+    </form>
+
+    <div class="disclaimer">
+      <p><span class="bold">Pricing:</span> The cost is $3.99 for each writing or speaking submission. For both writing and speaking submissions at the same time, the charge is $6.50. Please make sure you add the text and audio file link before submitting.</p>
+
+      <p><span class="bold">Submit your feedback on the service or ask any questions here:</span></p>
+
+      <p>Every effort is made to ensure scores and feedback are accurate, but our response should only be taken as a guide and not an official result. We love to hear your feedback so please tell us if the service has helped you or if you have suggestions to improve the service.</p>
+    </div>
+  </div>
+</body>
+</html>
