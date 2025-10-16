@@ -221,53 +221,104 @@ button:hover {
   max-height: 90%;
   overflow-y: auto;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+</style>
+
+<!-- Feedback Modal -->
+<div id="sampleFeedback" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">Close</span>
+      <h3>Sample Feedback</h3>
+    </div>
+    <div class="modal-body">
+      <p>Your feedback content goes here...</p>
+    </div>
+  </div>
+</div>
+
+<!-- Styles -->
+<style>
+/* Modal background */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+  transition: opacity 0.3s ease;
 }
-.close {
-  float: right;
-  font-size: 28px;
+
+/* Modal box */
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 50%;
+  position: relative;
+  animation: fadeIn 0.3s;
+}
+
+/* Modal header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Close button */
+.modal-header .close {
+  font-size: 18px; /* adjust size as needed */
   font-weight: bold;
   cursor: pointer;
+  color: #333;
 }
-.close:hover {
+.modal-header .close:hover {
   color: red;
+}
+
+/* Payment buttons centering */
+.payment-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center !important;
+  gap: 10px;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 </style>
 
-<!-- SCRIPT -->
+<!-- Scripts -->
 <script>
 var modal = document.getElementById("sampleFeedback");
-var btn = document.getElementById("sampleLink");
-var span = document.getElementsByClassName("close")[0];
+var btn = document.getElementById("sampleLink"); // link/button that opens modal
+var closeBtn = modal.querySelector(".close");
 
+// Open modal when clicking the link/button
 btn.onclick = function(event) {
   event.preventDefault();
   modal.style.display = "block";
 }
 
-span.onclick = function() {
+// Close modal when clicking "Close"
+closeBtn.onclick = function() {
   modal.style.display = "none";
 }
 
+// Close modal if clicking outside content
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
 </script>
-<div style="text-align: right; margin-top: 20px;">
-  <button onclick="document.getElementById('sampleFeedback').style.display='none'" 
-    style="background: #1E3A8A; color: white; font-weight: bold; padding: 8px 16px; border-radius: 8px; border: none; cursor: pointer;">
-    Close
-  </button>
-</div>
-<style>
-.payment-buttons { justify-content: center !important; }
-</style>
-    
 </body>
 </html>
-
-
-
-
-
