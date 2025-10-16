@@ -43,27 +43,26 @@ textarea, input[type="text"], input[type="email"] {
     box-sizing: border-box;
     font-size: 14px;
 }
-button {
-    background-color: #3366cc; /* mid-dark blue */
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    padding: 12px 20px;
-    margin: 5px;
-    cursor: pointer;
-    border: none;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-    min-width: 180px;
-}
-button:hover {
-    background-color: #2851a3;
-}
 .button-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 20px;
+}
+.button-container button {
+    min-width: 180px;
+    height: 48px;  /* slightly higher */
+    font-size: 18px; /* 2 pts bigger */
+    font-weight: bold;
+    color: white;
+    background-color: #3366cc;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+.button-container button:hover {
+    background-color: #2851a3;
 }
 .bottom-info {
     font-size: 16px;
@@ -74,37 +73,46 @@ button:hover {
     display: block;
     margin-top: 10px;
 }
-.modal {
-    display: none; 
-    position: fixed;
-    z-index: 10; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%;
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.5);
-}
-.modal-content {
-    background-color: #fefefe;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 70%;
-}
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-}
-.close:hover {
-    color: black;
-}
 .example-grey {
     color: grey;
     font-size: 12px;
+}
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border: 2px solid #000;
+  width: 80%;
+  max-width: 800px;
+  max-height: 90%;
+  overflow-y: auto;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-header .close {
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+}
+.modal-header .close:hover {
+  color: red;
 }
 </style>
 </head>
@@ -149,188 +157,77 @@ button:hover {
         <b>Please make sure you add the text and audio file link before submitting.</b>
     </div>
 </div>
-<!-- Trigger link -->
-<p>
-  Click the 
-  <a href="#" id="sampleLink">SAMPLE</a>
-  to see the style of feedback offered.
-</p>
 
 <!-- SAMPLE FEEDBACK MODAL -->
 <div id="sampleFeedback" class="modal">
   <div class="modal-content">
-    <span class="close">Close</span>
-    <h2>Sample IELTS Writing Feedback</h2>
-
-    <p><strong>General comment:</strong><br>
-      You have shown strong effort in presenting a structured essay, and it’s clear you care about conveying your ideas clearly, even though some sentences are long and slightly awkward.</p>
-
-    <p><strong>Positive aspects:</strong><br>
-      - Your essay has a clear introduction and conclusion, which frames your ideas effectively.<br>
-      - You provide relevant examples, such as memorizing words and sentence structures, to support your points.</p>
-
-    <p><strong>Areas to improve:</strong><br>
-      - Sentence clarity and grammar: some sentences are overly long and need punctuation adjustments.<br>
-      - Word choice: avoid minor spelling errors and repetitive phrases.</p>
-
-    <p><strong>Main errors with examples:</strong><br>
-      - <em>“relocate sucessfully”</em> → spelling mistake; should be <em>successfully</em>.<br>
-      - <em>“time-consuming and long-lasting process in a life of an individual”</em> → awkward phrasing; could be <em>a time-consuming, long-lasting process in a person’s life</em>.<br>
-      - <em>“not matter other activities”</em> → grammar issue; should be <em>no matter other activities</em>.</p>
-
-    <p><strong>Band scores for criteria:</strong><br>
-      - Task Achievement: Addresses task generally, Band 6.5<br>
-      - Coherence & Cohesion: Mostly clear ideas, Band 6.0<br>
-      - Lexical Resource: Good vocabulary, some errors, Band 6.5<br>
-      - Grammatical Range & Accuracy: Frequent small errors, Band 6.0<br>
-      <strong>Overall band:</strong> 6.5</p>
-
-    <p><strong>Final tips:</strong><br>
-      - Break long sentences into shorter ones for clarity.<br>
-      - Double-check spelling and small grammar issues.<br>
-      - Use precise phrases to replace awkward or repetitive expressions.</p>
-
-    <p><strong>Tutor's comment:</strong><br>
-      This is a good effort with a logical structure. Work on your spelling and articles e.g., a, an, the. With more collocations and academic phrasing this will score higher.</p>
-
-    <p><strong>Final motivating comment:</strong><br>
-      You’ve made a strong start! Keep refining your sentences and word choice, and your writing will become more polished with better clarity.</p>
-  </div>
-</div>
-
-<!-- STYLE -->
-<style>
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.5);
-}
-.modal-content {
-  background-color: white;
-  margin: 5% auto;
-  padding: 20px;
-  border: 2px solid #000;
-  width: 80%;
-  max-width: 800px;
-  max-height: 90%;
-  overflow-y: auto;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
-</style>
-
-<!-- Feedback Modal -->
-<div id="sampleFeedback" class="modal">
-  <div class="modal-content">
     <div class="modal-header">
       <span class="close">Close</span>
-      <h3>Sample Feedback</h3>
+      <h2>Sample IELTS Writing Feedback</h2>
     </div>
     <div class="modal-body">
-      <p>Your feedback content goes here...</p>
+      <p><strong>General comment:</strong><br>
+        You have shown strong effort in presenting a structured essay, and it’s clear you care about conveying your ideas clearly, even though some sentences are long and slightly awkward.</p>
+
+      <p><strong>Positive aspects:</strong><br>
+        - Your essay has a clear introduction and conclusion, which frames your ideas effectively.<br>
+        - You provide relevant examples, such as memorizing words and sentence structures, to support your points.</p>
+
+      <p><strong>Areas to improve:</strong><br>
+        - Sentence clarity and grammar: some sentences are overly long and need punctuation adjustments.<br>
+        - Word choice: avoid minor spelling errors and repetitive phrases.</p>
+
+      <p><strong>Main errors with examples:</strong><br>
+        - <em>“relocate sucessfully”</em> → spelling mistake; should be <em>successfully</em>.<br>
+        - <em>“time-consuming and long-lasting process in a life of an individual”</em> → awkward phrasing; could be <em>a time-consuming, long-lasting process in a person’s life</em>.<br>
+        - <em>“not matter other activities”</em> → grammar issue; should be <em>no matter other activities</em>.</p>
+
+      <p><strong>Band scores for criteria:</strong><br>
+        - Task Achievement: Addresses task generally, Band 6.5<br>
+        - Coherence & Cohesion: Mostly clear ideas, Band 6.0<br>
+        - Lexical Resource: Good vocabulary, some errors, Band 6.5<br>
+        - Grammatical Range & Accuracy: Frequent small errors, Band 6.0<br>
+        <strong>Overall band:</strong> 6.5</p>
+
+      <p><strong>Final tips:</strong><br>
+        - Break long sentences into shorter ones for clarity.<br>
+        - Double-check spelling and small grammar issues.<br>
+        - Use precise phrases to replace awkward or repetitive expressions.</p>
+
+      <p><strong>Tutor's comment:</strong><br>
+        This is a good effort with a logical structure. Work on your spelling and articles e.g., a, an, the. With more collocations and academic phrasing this will score higher.</p>
+
+      <p><strong>Final motivating comment:</strong><br>
+        You’ve made a strong start! Keep refining your sentences and word choice, and your writing will become more polished with better clarity.</p>
     </div>
   </div>
 </div>
-
-<!-- Styles -->
-<style>
-/* Modal background */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.5);
-  transition: opacity 0.3s ease;
-}
-
-/* Modal box */
-.modal-content {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 8px;
-  width: 50%;
-  position: relative;
-  animation: fadeIn 0.3s;
-}
-
-/* Modal header */
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Close button */
-.modal-header .close {
-  font-size: 18px; /* adjust size as needed */
-  font-weight: bold;
-  cursor: pointer;
-  color: #333;
-}
-.modal-header .close:hover {
-  color: red;
-}
-
-/* Payment buttons centering */
-.payment-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center !important;
-  gap: 10px;
-}
-
-/* Fade-in animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-</style>
 
 <!-- Scripts -->
 <script>
 var modal = document.getElementById("sampleFeedback");
-var btn = document.getElementById("sampleLink"); // link/button that opens modal
+var btn = document.getElementById("sampleLink");
 var closeBtn = modal.querySelector(".close");
 
-// Open modal when clicking the link/button
 btn.onclick = function(event) {
   event.preventDefault();
   modal.style.display = "block";
 }
 
-// Close modal when clicking "Close"
 closeBtn.onclick = function() {
   modal.style.display = "none";
 }
 
-// Close modal if clicking outside content
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
 </script>
-<style>
-.payment-buttons {
-  display: flex;
-  flex-wrap: wrap;       /* allows buttons to wrap to next row */
-  justify-content: center; /* centers all buttons horizontally */
-  gap: 10px;             /* consistent spacing between buttons */
-  margin-top: 20px;      /* optional: space above buttons */
-}
-</style>
-
-    
 </body>
 </html>
+
+
+</html>
+
 
