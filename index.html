@@ -142,7 +142,8 @@ textarea, input[type="text"], input[type="email"] {
             <button type="submit" name="service" value="writing" id="writingButton">Submit Part 2 Writing ($3.99)</button>
             <button type="submit" name="service" value="speaking" id="speakingButton">Submit Part 2 Speaking ($3.99)</button>
             <button type="submit" name="service" value="combo" id="comboButton">Submit Writing & Speaking ($6.50)</button>
-            <button type="submit" name="service" value="feedback" id="feedbackButton">Submit Feedback or Questions</button>
+            <button type="button" id="feedbackButton" onclick="submitFeedback()">Submit Feedback or Questions</button>
+
         </div>
 
         <label for="email">Your email address:</label>
@@ -228,11 +229,45 @@ window.onclick = function(event) {
   }
 }
 </script>
+    <script>
+function submitFeedback() {
+  const feedbackText = document.getElementById("feedbackBox").value.trim();
+
+  if (feedbackText === "") {
+    alert("Please enter your feedback or question before submitting.");
+    return;
+  }
+
+  // Send the feedback to your email via Formfill (replace YOUR_FORMFILL_URL)
+  fetch("https://formfill.io/YOUR_FORMFILL_URL", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      feedback: feedbackText,
+    }),
+  })
+  .then(response => {
+    if (response.ok) {
+      alert("Thank you for your message!");
+      document.getElementById("feedbackBox").value = "";
+    } else {
+      alert("There was an issue sending your message. Please try again.");
+    }
+  })
+  .catch(() => {
+    alert("There was an error sending your message. Please check your connection and try again.");
+  });
+}
+</script>
+
 </body>
 </html>
 
 
 </html>
+
 
 
 
