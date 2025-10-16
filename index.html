@@ -261,12 +261,68 @@ function submitFeedback() {
   });
 }
 </script>
+    <script>
+async function submitFeedback() {
+  const feedbackText = document.getElementById("feedbackBox").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const confirmEmail = document.getElementById("emailConfirm").value.trim();
+  const btn = document.getElementById("feedbackButton");
+
+  if (!feedbackText) {
+    alert("Please enter your feedback or question before submitting.");
+    return;
+  }
+  if (!email || !confirmEmail || email !== confirmEmail) {
+    alert("Please enter your email and make sure both email fields match before submitting.");
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = "Sending...";
+
+  try {
+    const formData = new FormData();
+    formData.append("email", email);
+    formData.append("feedback", feedbackText);
+    formData.append("_subject", "New feedback from site"); // optional subject
+
+    const res = await fetch("https://formspree.io/f/xjkaajyr", {
+      method: "POST",
+      body: formData,
+      headers: {
+        "Accept": "application/json"
+      }
+    });
+
+    if (res.ok) {
+      alert("Thank you for your message!");
+      document.getElementById("feedbackBox").value = "";
+      // optionally clear email fields:
+      // document.getElementById("email").value = "";
+      // document.getElementById("emailConfirm").value = "";
+    } else {
+      // parse JSON error from Formspree if available
+      const data = await res.json().catch(() => ({}));
+      console.error("Formspree response error:", data);
+      alert("There was an issue sending your message. Please try again.");
+    }
+  } catch (err) {
+    console.error("Network or CORS error:", err);
+    alert("There was an error sending your message. Please check your connection and try again.");
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Submit Feedback or Questions";
+  }
+}
+</script>
+
 
 </body>
 </html>
 
 
 </html>
+
 
 
 
