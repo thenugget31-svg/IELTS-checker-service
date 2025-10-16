@@ -47,23 +47,27 @@ textarea, input[type="text"], input[type="email"] {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
     margin-bottom: 20px;
 }
+
 .button-container button {
-    min-width: 180px;
-    height: 48px;  /* slightly higher */
-    font-size: 18px; /* 2 pts bigger */
+    width: 200px;       /* make all buttons equal width */
+    height: 52px;       /* slightly taller */
+    font-size: 18px;    /* larger white text */
     font-weight: bold;
     color: white;
     background-color: #3366cc;
     border: none;
+    border-radius: 6px;
     cursor: pointer;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
+
 .button-container button:hover {
     background-color: #2851a3;
 }
+
 .bottom-info {
     font-size: 16px;
     text-align: center;
@@ -229,5 +233,6 @@ window.onclick = function(event) {
 
 
 </html>
+
 
 
